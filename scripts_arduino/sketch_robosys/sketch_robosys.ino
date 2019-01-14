@@ -21,8 +21,7 @@ AccelStepper stepperL(1, StepPin_L, DirPin_L);
 AccelStepper stepperR(1, StepPin_R, DirPin_R);
 
 void stepper_Callback(const geometry_msgs::Point &stepper){
-  //step_linear_x = is_dis.linear.x / 0.275;
-  //step_angular_z = 137 * is_dis.angular.z * 3.14 / 360 / 0.275;
+
      stepper_run_fb(stepper.x);
      stepper_run_turn(stepper.z); //CCW
 } 
@@ -50,7 +49,6 @@ void stepper_set_turn(int x, int y, int z){
 }
 
 void stepper_run_fb(float x){
-  int step_x = x / 0.275;
   stepper_set_fb(1846, 3692, step_x);
   while( (stepperL.distanceToGo() != 0) && (stepperR.distanceToGo() != 0) ){
       stepperL.run();
@@ -60,7 +58,6 @@ void stepper_run_fb(float x){
   delay(1000);
 }
 void stepper_run_turn(float z){
-  int step_angular_z = 137 * z * 3.14 / 360 / 0.275;
   stepper_set_turn(1200, 3692, step_angular_z);
   while( (stepperL.distanceToGo() != 0) && (stepperR.distanceToGo() != 0) ){
       stepperL.run();
