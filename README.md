@@ -12,3 +12,4 @@
 * LICENSEはBSD 3-clause "New" or "Revised" Licenseを使用
 ## Demonstration
 * youtube:https://youtu.be/SBTXJ7FcbLg
+* Demonstrationではタイル500mm(タイル1枚分)を前後移動、左右に90度回転を実行
